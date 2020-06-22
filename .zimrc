@@ -40,4 +40,6 @@ zmodule zsh-users/zsh-history-substring-search
 # my Modules
 
 zmodule romkatv/powerlevel10k
+zmodule https://github.com/agkozak/zsh-z
+
 
