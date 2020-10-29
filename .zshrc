@@ -149,6 +149,7 @@ alias rc="code '$HOME/.zshrc'"
 alias gaa="git add -A"
 alias gs="git status -sb"
 alias gps="git push"
+alias gpsu="git push -u origin master"
 alias gpl="git pull --rebase --autostash"
 
 function gc {
@@ -168,7 +169,7 @@ function gi {
         rm .gitignore
         touch .gitignore
         echo $gitignore >> .gitignore
-    else 
+    else
         touch .gitignore
         echo $gitignore >> .gitignore
     fi
@@ -190,4 +191,17 @@ function prompt_exit_code() {
     else
         echo -n red
     fi
+}
+
+# Custon command to compile and run c scripts
+function c() {
+  if [ -f "$1" ]; then
+    f="$(basename -s .c $1).out"
+    gcc -fopenmp $1 -o $f
+
+    ./$f
+  else
+    echo "Select the file to compile";
+  fi
+
 }
