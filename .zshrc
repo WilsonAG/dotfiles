@@ -162,18 +162,18 @@ function gc {
   fi
 }
 
-function gi {
-    local gitignore=$(curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/intellij+all,linux,macos,node,visualstudiocode,windows)
+# function gi {
+#     local gitignore=$(curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/intellij+all,linux,macos,node,visualstudiocode,windows)
 
-    if [ -f '.gitignore' ]; then
-        rm .gitignore
-        touch .gitignore
-        echo $gitignore >> .gitignore
-    else
-        touch .gitignore
-        echo $gitignore >> .gitignore
-    fi
-}
+#     if [ -f '.gitignore' ]; then
+#         rm .gitignore
+#         touch .gitignore
+#         echo $gitignore >> .gitignore
+#     else
+#         touch .gitignore
+#         echo $gitignore >> .gitignore
+#     fi
+# }
 
 _reverse_search() {
   local selected_command=$(fc -rl 1 | awk '{$1="";print substr($0,2)}' | fzf)
@@ -205,3 +205,5 @@ function c() {
   fi
 
 }
+
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
